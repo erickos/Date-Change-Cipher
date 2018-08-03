@@ -6,12 +6,12 @@
 #define BUFFER_LIMIT 100000
 
 /**
- * @brief      { function_description }
+ * @brief      	Converts the ciphered character to the original. 
  *
- * @param[in]  coefficient   The coefficient
- * @param[in]  originalChar  The original character
+ * @param     	coefficient   The coefficient is the number to deduct of original
+ * @param      	originalChar  The original character is the ciphered character to be unciphered.
  *
- * @return     { description_of_the_return_value }
+ * @return     	The unciphered character.
  */
 char generateCharacter( int coefficient, char originalChar )
 {
@@ -41,12 +41,13 @@ char generateCharacter( int coefficient, char originalChar )
 }
 
 /**
- *  Generate and saves in the output file the encrypted message.
- * @param dateNumbers array with the digits of input date
- * @param inputFile pointer for input file to read the original message
- * @param outputFilename string name of the output file on system
+ * @brief 		Generate and saves in a output file the uncipher message.
  * 
- * @return 0 in sucess, 1 in otherwise
+ * @param 		dateNumbers array with the digits of input date
+ * @param 		inputFile pointer for input file to read the ciphered message
+ * @param 		outputFilename string name of the output file on system
+ * 
+ * @return 	0 in sucess, 1 in otherwise
  */
 int uncipher( int* dateNumbers, FILE * inputFile, char * outputFilename )
 {
@@ -102,32 +103,32 @@ int main( int argc, char ** argv )
         return 1;
     }
 
-    char * date = (char *) calloc( 9, sizeof(char) );
+    char * date = (char *) calloc( 9, sizeof(char) ); // string to save the date string
 
     strcpy( date, argv[1] );
 
-    int * dateOnlyNumbers = (int *) calloc( DATE_SIZE, sizeof(int) );
+    int * dateOnlyNumbers = (int *) calloc( DATE_SIZE, sizeof(int) ); // int array to guard the digits of the date
 
-    int indexOriginalDate;
-    int indexDateOnlyNumbers;
+    int indexOriginalDate; // index to go through the original date
+    int indexDateOnlyNumbers; // index to go through the digits array
 
     for( indexOriginalDate = 0, indexDateOnlyNumbers = 0; *(date + indexOriginalDate) != '\0'; indexOriginalDate++ )
     {
-        if( *(date + indexOriginalDate) != '/' )
+        if( *(date + indexOriginalDate) != '/' ) // eliminates the char '/' and saves the value of the digit
         {
             *(dateOnlyNumbers + indexDateOnlyNumbers) = *(date + indexOriginalDate) - '0';
             indexDateOnlyNumbers++;
         }
     }
 
-    int success = uncipher( dateOnlyNumbers, inputFile, argv[3] );
+    int success = uncipher( dateOnlyNumbers, inputFile, argv[3] ); // success receive the return of uncipher to deteminate if had been a successfull uncipher
 	
 	if( success == 0 )
 	{
 		printf( ">>> Successfull uncipher of the message! <<<\n" );
 	} else 
 	{
-		printf( ">>> Error in uncipher! <<<\n" );
+		printf( ">>> Error on uncipher! <<<\n" );
 	}
 
 	free( date );

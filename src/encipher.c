@@ -6,12 +6,12 @@
 #define BUFFER_LIMIT 100000
 
 /**
- * @brief      { function_description }
+ * @brief      Converts a character of the original message in a ciphered character
  *
- * @param[in]  coefficient   The coefficient
- * @param[in]  originalChar  The original character
+ * @param[in]  coefficient   The coefficient is a number to plus on char value
+ * @param[in]  originalChar  The original character is the character to be ciphered.
  *
- * @return     { description_of_the_return_value }
+ * @return     The ciphered char
  */
 char generateCharacter( int coefficient, char originalChar )
 {
@@ -40,12 +40,13 @@ char generateCharacter( int coefficient, char originalChar )
 }
 
 /**
- *  Generate and saves in the output file the encrypted message.
- * @param dataNumbers array with the digits of input date
- * @param inputFile pointer for input file to read the original message
- * @param outputFilename string name of the output file on system
+ * @brief 		Generate and saves in the output file the encrypted message.
+ *  
+ * @param 		dataNumbers array with the digits of input date
+ * @param 		inputFile pointer for input file to read the original message
+ * @param 		outputFilename string name of the output file on system
  * 
- * @return 0 in sucess, 1 in otherwise
+ * @return 		0 in sucess, 1 in otherwise
  */
 int generateCipher( int* dataNumbers, FILE * inputFile, char * outputFilename )
 {
@@ -87,9 +88,9 @@ int generateCipher( int* dataNumbers, FILE * inputFile, char * outputFilename )
 
 int main( int argc, char ** argv )
 {
-    if( argc != 4 )
+     if( argc != 4 )
     {
-        printf( "Argumentos inválidos!\n" );
+        printf( "Invalid Arguments!\n" );
         return 1;
     }
 
@@ -97,29 +98,29 @@ int main( int argc, char ** argv )
 
     if( inputFile == NULL )
     {
-        printf( "Arquivo não existente ou inválido!!\nEncerrando execução!!\n" );
+        printf( "Invalid or inexistent file!!\nEnding execution!!\n" );
         return 1;
     }
 
-    char * data = (char *) calloc( 9, sizeof(char) );
+    char * data = (char *) calloc( 9, sizeof(char) ); // string to save the date string
 
     strcpy( data, argv[1] );
 
-    int * dataOnlyNumbers = (int *) calloc( DATA_SIZE, sizeof(int) );
+    int * dataOnlyNumbers = (int *) calloc( DATA_SIZE, sizeof(int) ); // int array to guard the digits of the date
 
-    int indexOriginalData;
-    int indexDataOnlyNumbers;
+    int indexOriginalData; // index to go through the original date
+    int indexDataOnlyNumbers; // index to go through the digits array
 
     for( indexOriginalData = 0, indexDataOnlyNumbers = 0; *(data + indexOriginalData) != '\0'; indexOriginalData++ )
     {
-        if( *(data + indexOriginalData) != '/' )
+        if( *(data + indexOriginalData) != '/' ) // eliminates the char '/' and saves the value of the digit
         {
             *(dataOnlyNumbers + indexDataOnlyNumbers) = *(data + indexOriginalData) - '0';
             indexDataOnlyNumbers++;
         }
     }
-
-    int success = generateCipher( dataOnlyNumbers, inputFile, argv[3] );
+ 
+    int success = generateCipher( dataOnlyNumbers, inputFile, argv[3] ); // success receive the return of generateCipher to deteminate if had been a successfull cipher
 	
 	if( success == 0 )
 	{
