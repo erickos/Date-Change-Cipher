@@ -2,7 +2,7 @@
 
 ## Description
 
-A simple message cipher using date cipher. Made in C lang.
+A simple message cipher using date cipher. Builded in C lang on a Linux distibution.
 
 ## Compiling
 
@@ -20,7 +20,7 @@ A simple message cipher using date cipher. Made in C lang.
 
 > make clean
 
-## Autoria
+## Authorship
 
 Developed by Erick de Oliveira Silva (<erickoliveira.eos@gmail.com>), I.T. student from Instituto Metrópole Digitai (IMD) in Universidade Federal do Rio Grande do Norte (UFRN).
 
