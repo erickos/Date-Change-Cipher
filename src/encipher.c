@@ -31,6 +31,9 @@ char generateCharacter( int coefficient, char originalChar )
 			int diff = newChar - 'Z';
 			newChar = 'A' + diff;
 		}
+	} else 
+	{
+		newChar = originalChar;
 	}
 
 	return newChar;
@@ -71,8 +74,9 @@ int generateCipher( int* dataNumbers, FILE * inputFile, char * outputFilename )
 				encryptedBuffer[ i ] = buffer[ i ];
 			}
 		}
-		fprintf( outputFile, "%s ", encryptedBuffer ); 
 		encryptedBuffer[ i ] = '\0';
+		fprintf( outputFile, "%s ", encryptedBuffer ); 
+		
 	}
 	fprintf( outputFile, "\n" );
 	fclose( outputFile );

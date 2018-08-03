@@ -32,10 +32,6 @@ char generateCharacter( int coefficient, char originalChar )
 			newChar = 'Z' - diff;
 		}
 	}
-	else 
-	{
-		newChar = originalChar;
-	}
 
 	return newChar;
 }
@@ -75,9 +71,8 @@ int uncipher( int* dateNumbers, FILE * inputFile, char * outputFilename )
 				uncipheredcipheredBuffer[ i ] = cipheredBuffer[ i ];
 			}
 		}
-		uncipheredcipheredBuffer[ i ] = '\0';
 		fprintf( outputFile, "%s ", uncipheredcipheredBuffer ); 
-		
+		uncipheredcipheredBuffer[ i ] = '\0';
 	}
 	fprintf( outputFile, "\n" );
 	fclose( outputFile );
