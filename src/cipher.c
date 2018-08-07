@@ -20,16 +20,16 @@ char generateCharacter( int coefficient, char originalChar )
 	{
 		if( newChar > 'z' )
 		{
-			int diff = newChar - 'z'-1;
-			newChar = 'a' + diff;
+			int diff = newChar - 'z';
+			newChar = 'a' + diff - 1; 
 		}
 	}
 	else if( originalChar >= 'A' && originalChar <= 'Z' ) 
 	{
 		if( newChar > 'Z' )
 		{
-			int diff = newChar - 'Z'-1;
-			newChar = 'A' + diff;
+			int diff = newChar - 'Z';
+			newChar = 'A' + diff - 1; 
 		}
 	} else 
 	{
