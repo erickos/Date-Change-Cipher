@@ -20,7 +20,7 @@ char generateCharacter( int coefficient, char originalChar )
 	{
 		if( newChar > 'z' )
 		{
-			int diff = newChar - 'z';
+			int diff = newChar - 'z'-1;
 			newChar = 'a' + diff;
 		}
 	}
@@ -28,7 +28,7 @@ char generateCharacter( int coefficient, char originalChar )
 	{
 		if( newChar > 'Z' )
 		{
-			int diff = newChar - 'Z';
+			int diff = newChar - 'Z'-1;
 			newChar = 'A' + diff;
 		}
 	} else 
