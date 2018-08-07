@@ -47,7 +47,7 @@ char generateCharacter( int coefficient, char originalChar )
  * @param 		inputFile pointer for input file to read the ciphered message
  * @param 		outputFilename string name of the output file on system
  * 
- * @return 	0 in sucess, 1 in otherwise
+ * @return 		0 in sucess, 1 in otherwise
  */
 int uncipher( int* dateNumbers, FILE * inputFile, char * outputFilename )
 {

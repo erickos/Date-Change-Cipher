@@ -6,12 +6,12 @@
 #define BUFFER_LIMIT 100000
 
 /**
- * @brief      Converts a character of the original message in a ciphered character
+ * @brief      	Converts a character of the original message in a ciphered character
  *
- * @param[in]  coefficient   The coefficient is a number to plus on char value
- * @param[in]  originalChar  The original character is the character to be ciphered.
+ * @param 	 	coefficient   The coefficient is a number to plus on char value
+ * @param  		originalChar  The original character is the character to be ciphered.
  *
- * @return     The ciphered char
+ * @return     	The ciphered char
  */
 char generateCharacter( int coefficient, char originalChar )
 {

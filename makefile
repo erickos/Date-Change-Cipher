@@ -21,6 +21,7 @@ BIN_CIPHER_NAME = ./bin/cipher
 BIN_UNCIPHER_NAME = ./bin/uncipher
 
 make:
+	if [ ! -d bin/ ]; then mkdir bin/; fi
 	$(CXX) -Wall $(COMPILE_FLAG) $(SRC_CIPHER_PATH) -o $(BIN_CIPHER_NAME)
 	$(CXX) -Wall $(COMPILE_FLAG) $(SRC_UNCIPHER_PATH) -o $(BIN_UNCIPHER_NAME)
 
