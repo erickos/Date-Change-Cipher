@@ -2,7 +2,7 @@
 
 ## Description
 
-A simple message cipher using date cipher. Builded in C lang on a Linux distibution.
+A simple message cipher using date cipher. Builded in C lang on a Linux Debian distibution.
 
 ## Compiling
 
