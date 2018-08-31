@@ -15,7 +15,7 @@
  */
 char generateCharacter( int coefficient, char originalChar )
 {
-	char newChar = originalChar + coefficient;
+	int newChar = originalChar + coefficient;
 	if( originalChar >= 'a' && originalChar <= 'z' )
 	{
 		if( newChar > 'z' )
@@ -23,8 +23,7 @@ char generateCharacter( int coefficient, char originalChar )
 			int diff = newChar - 'z';
 			newChar = 'a' + diff - 1; 
 		}
-	}
-	else if( originalChar >= 'A' && originalChar <= 'Z' ) 
+	} else if( originalChar >= 'A' && originalChar <= 'Z' ) 
 	{
 		if( newChar > 'Z' )
 		{
@@ -61,7 +60,7 @@ int generateCipher( int* dataNumbers, FILE * inputFile, char * outputFilename )
 	
 	char buffer[BUFFER_LIMIT]; // array to bufferize 100 characters of the original file content. The last one char is '\0'.
 	char encryptedBuffer[BUFFER_LIMIT];  // array to bufferize 100 characters of the encrypted file content. The last one char is '\0'.
-    while( fscanf( inputFile, "%s", buffer ) > 0 )
+    while( fgets( buffer, 100, inputFile ) != NULL )
 	{
 		int i;
 		for( i = 0; buffer[ i ] != '\0'; i++ )
@@ -76,11 +75,16 @@ int generateCipher( int* dataNumbers, FILE * inputFile, char * outputFilename )
 			}
 		}
 		encryptedBuffer[ i ] = '\0';
-		fprintf( outputFile, "%s ", encryptedBuffer ); 
+		fprintf( outputFile, "%s", encryptedBuffer ); 
 		
 	}
-	fprintf( outputFile, "\n" );
 	fclose( outputFile );
+
+	char buff[ BUFFER_LIMIT ];
+
+	snprintf( buff, sizeof(buff), "mv %s build/", outputFilename ); 
+	system( buff );
+
 	return 0;
 
 }

@@ -11,13 +11,15 @@ A simple message cipher using date cipher. Builded in C lang on a Linux Debian d
 ## Running
 
 ### To cipher the message
-> bin/cipher dd/MM/YY inputFile outputFile
+> bin/encoder dd/MM/YY inputFile outputFile
 
 ### To uncipher the message
-> bin/uncipher dd/MM/YY cipheredInputFile outputFile
+> bin/decoder dd/MM/YY cipheredInputFile outputFile
 
-## Cleaning the binaries
+## Generated files
+All the created files by the project are saved on build/ directory.
 
+## Cleaning the project
 > make clean
 
 ## Authorship
